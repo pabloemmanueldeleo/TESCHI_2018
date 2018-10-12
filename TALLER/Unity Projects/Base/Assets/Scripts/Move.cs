@@ -5,9 +5,14 @@ using UnityEngine;
 public class Move : MonoBehaviour {
 
     public GameState gameState;
-    public float speed = 5f;
-    public float acceleration = 5f;
-    public float rotationSpeed = 10f;
+
+    public float maxPlayerSpeed = 5f;
+    public float minPlayerSpeed = 0.5f;
+    public float playerSpeed;
+        
+    public float maxPlayerRotationSpeed = 10f;
+    public float minPlayerRotationSpeed = 5f;
+    public float playerRotationSpeed;
 
     private Rigidbody rb;
     private Animator anim;
@@ -18,7 +23,9 @@ public class Move : MonoBehaviour {
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();   
+        anim = GetComponent<Animator>();
+        playerSpeed = maxPlayerSpeed;
+        playerRotationSpeed = maxPlayerRotationSpeed;   
     }
 
     private void FixedUpdate()
@@ -27,18 +34,25 @@ public class Move : MonoBehaviour {
         {
             isMoving = true;
             anim.SetBool("isMoving", true);
+            anim.SetFloat("playerSpeed", playerSpeed);
 
-            newPosition = transform.position + gameState.directionInput * speed * Time.deltaTime;
+            newPosition = transform.position + gameState.directionInput * playerSpeed * Time.deltaTime;
             rb.MovePosition(newPosition);
 
             newRotation = Quaternion.LookRotation(gameState.directionInput, Vector3.up);
-            newRotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * rotationSpeed);
+            newRotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * playerRotationSpeed);
             rb.MoveRotation(newRotation);
-        }
+        }        
         else if (isMoving)
         {
             isMoving = false;
             anim.SetBool("isMoving", false);
         }
+    }
+
+    public void ChangeSpeed(float deltaSpeed)
+    {
+        playerSpeed = Mathf.Clamp(playerSpeed + deltaSpeed, minPlayerSpeed, maxPlayerSpeed);
+        playerRotationSpeed = Mathf.Clamp(playerRotationSpeed + deltaSpeed, minPlayerRotationSpeed, maxPlayerRotationSpeed);
     }
 }

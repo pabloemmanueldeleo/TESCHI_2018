@@ -8,6 +8,7 @@ public class Sink : MonoBehaviour {
     public float sinkDistance;
     public float sinkSpeed = 0.5f;
     public float playerSpeedVariation = 0.7f;
+    public float sinkLiftProportion = 2;
 
     public Transform model;
 
@@ -35,8 +36,8 @@ public class Sink : MonoBehaviour {
         {
             if(sinkDistance < 0)
             {
-                sinkDistance += sinkSpeed * 2 * Time.deltaTime;
-                move.ChangeSpeed(playerSpeedVariation * 2 * Time.deltaTime);                                               
+                sinkDistance += sinkSpeed * sinkLiftProportion * Time.deltaTime;
+                move.ChangeSpeed(playerSpeedVariation * sinkLiftProportion * Time.deltaTime);                                               
             }
         }
         

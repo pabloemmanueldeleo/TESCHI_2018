@@ -12,11 +12,3 @@ MonoBehaviour:
   m_Name: GameState
   m_EditorClassIdentifier: 
   directionInput: {x: 0, y: 0, z: 0}
-  maxPlayerSpeed: 5
-  minPlayerSpeed: 0.5
-  playerSpeed: 4.764017
-  maxPlayerRotationSpeed: 10
-  minPlayerRotationSpeed: 5
-  playerRotationSpeed: 9.764017
-  maxSinkDistance: -2
-  sinkDistance: -0.19999999

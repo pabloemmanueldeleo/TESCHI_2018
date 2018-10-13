@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyIA : MonoBehaviour {
 
-    public float rotationSpeed = 3f;
-    public float detectedRotationSpeed = 20f;
+    public float searchRotationSpeed = 45f; //degrees per second
+    public float detectedRotationSpeed = 5f;
     public float enemySpeedRatio = 2f;
     public Color searchingColor;
     public Color staringColor;
@@ -16,6 +16,7 @@ public class EnemyIA : MonoBehaviour {
     
     private Detector[] detectors;
     private Animator animator;
+    private Quaternion newRotation;
 
     private void Awake()
     {
@@ -77,6 +78,9 @@ public class EnemyIA : MonoBehaviour {
         {
             fovRenderer.color = searchingColor;
         }
+
+        newRotation = detectionSystem.transform.localRotation * Quaternion.AngleAxis(searchRotationSpeed * Time.deltaTime, Vector3.up);        
+        detectionSystem.transform.localRotation = newRotation;
     }
     public void Staring()
     {
@@ -84,6 +88,7 @@ public class EnemyIA : MonoBehaviour {
         {
             fovRenderer.color = staringColor;
         }
+                
     }
 
     public void Chasing()

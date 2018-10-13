@@ -9,12 +9,6 @@ public class GameState : ScriptableObject {
     public float sinkDistance;
     public bool gameFinish;
     public bool playerDead;
-
-    private void Awake()
-    {
-        directionInput = Vector3.zero;
-        sinkDistance = 0f;
-        gameFinish = false;
-        playerDead = false;
-    }
+    public Transform playerTransform;
+       
 }

@@ -1890,6 +1890,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114684615128692920, guid: cde38cc98a422ec43b27b900d89b9ece,
+        type: 2}
+      propertyPath: searchRotationSpeed
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cde38cc98a422ec43b27b900d89b9ece, type: 2}
   m_IsPrefabParent: 0
@@ -2004,7 +2009,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4807710330727242, guid: e7bc2ded4dd2f814a9b7e83a322fb120, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4730847419472334, guid: e7bc2ded4dd2f814a9b7e83a322fb120, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2901,7 +2906,7 @@ Transform:
   m_Children:
   - {fileID: 609307541}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1722505881
 CapsuleCollider:

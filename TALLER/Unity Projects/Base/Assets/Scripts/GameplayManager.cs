@@ -12,6 +12,7 @@ public class GameplayManager : MonoBehaviour {
         gameState.sinkDistance = 0f;
         gameState.gameFinish = false;
         gameState.playerDead = false;
+        gameState.playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
 }

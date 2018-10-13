@@ -5,7 +5,6 @@ using UnityEngine;
 public class Sink : MonoBehaviour {
     
     public float maxSinkDistance = -2f;
-    public float sinkDistance;
     public float sinkSpeed = 0.5f;
     public float playerSpeedVariation = 0.7f;
     public float sinkLiftProportion = 2;
@@ -26,24 +25,24 @@ public class Sink : MonoBehaviour {
     {
         if (gameState.directionInput == Vector3.zero)
         {
-            if(sinkDistance > maxSinkDistance)
+            if(gameState.sinkDistance > maxSinkDistance)
             {
-                sinkDistance -= sinkSpeed * Time.deltaTime;
+                gameState.sinkDistance -= sinkSpeed * Time.deltaTime;
                 move.ChangeSpeed(-playerSpeedVariation * Time.deltaTime);                                
             }
         }
         else
         {
-            if(sinkDistance < 0)
+            if(gameState.sinkDistance < 0)
             {
-                sinkDistance += sinkSpeed * sinkLiftProportion * Time.deltaTime;
+                gameState.sinkDistance += sinkSpeed * sinkLiftProportion * Time.deltaTime;
                 move.ChangeSpeed(playerSpeedVariation * sinkLiftProportion * Time.deltaTime);                                               
             }
         }
         
-        if(sinkDistance < 0)
+        if(gameState.sinkDistance < 0)
         {
-            newPosition.y = sinkDistance;
+            newPosition.y = gameState.sinkDistance;
             model.localPosition = newPosition;
 
         }

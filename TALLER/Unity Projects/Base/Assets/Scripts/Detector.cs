@@ -9,19 +9,21 @@ public class Detector : MonoBehaviour {
     public float raySeparation = 0.5f;
    
     public delegate void Detected();
-    public static event Detected OnDetected;
-    public static Detected OnLost;
+    public event Detected OnDetected;
+    public event Detected OnLost;
 
+    private Vector3[] rayDirections;
     private bool detected;
     private RaycastHit hit;
     private float separationAngle;
     private float trueFieldAngle;
     private int rayCount;
     private Vector3 directionVector;
+    private Vector3[] directionVectors;
             
     void Update()
     {
-        Vector3[] rayDirections = GetRayDirections(fieldLength, fieldAngle, raySeparation);
+        rayDirections = GetRayDirections(fieldLength, fieldAngle, raySeparation);
         int layerMask = 1 << 9;
 
         foreach (Vector3 direction in rayDirections)
@@ -30,6 +32,7 @@ public class Detector : MonoBehaviour {
 
             if (Physics.Raycast(transform.position, transform.TransformDirection(direction), out hit, fieldLength, layerMask))
             {
+
                 if (!detected)
                 {
                     detected = true;
@@ -53,16 +56,16 @@ public class Detector : MonoBehaviour {
         trueFieldAngle = separationAngle * rayCount;
 
         rayCount++;
-        Vector3[] rayDirections = new Vector3[rayCount];
+        directionVectors = new Vector3[rayCount];
         directionVector = Quaternion.AngleAxis(-trueFieldAngle / 2, Vector3.up) * Vector3.forward;
 
         for(int i = 0; i<rayCount; i++)
         {
-            rayDirections[i] = directionVector * fieldLength;
+            directionVectors[i] = directionVector * fieldLength;
             directionVector = Quaternion.AngleAxis(separationAngle, Vector3.up) * directionVector;
         }
         
-        return rayDirections;
+        return directionVectors;
     }
 
 }

@@ -28,7 +28,7 @@ def resetTRF(ctr='',*args):
         except:
             pass
 
-def resetAll(controles={},nameSpace=None):
+def resetAll(controles={},nameSpace=None,*args):
     for key in controles.keys():
         for ctrl in controles[key]:
             if nameSpace:
@@ -39,14 +39,15 @@ def resetAll(controles={},nameSpace=None):
 def botonesUI(controles='',nameSpace=None,wh=[100,50],heightW=500,pariente=None):
 
     #creo los botones recoriendo el diccionario que creamos
-    cmds.button(l='Resetear todos',command=partial(resetAll,controles))
+    cmds.button(l='Resetear todos',command=partial(resetAll,controles,nameSpace))
     cmds.scrollLayout(height=heightW, childResizable=True)# emparentar externos aqui return de esto
     for key in controles.keys():
         #Creo una columna para los botones
         #Colores alateorios para distingir mejor los controles
         r,g,b=random.uniform(0.0,1.0),random.uniform(0.0,1.0),random.uniform(0.0,1.0)
         #Agrego el titulo desde el key del diccionario
-        cmds.text( label='>'+key.upper()+'<', align='left',font='boldLabelFont')
+        cmds.frameLayout( label='>'+key.upper()+'<' ,collapsable=True)
+        #cmds.text( label='>'+key.upper()+'<', align='left',font='boldLabelFont')
         for ctrl in controles[key]:
             #Solo si existe algo escrito en la variable nameSpace y si es asi le agrego el nameSpace al control.
             if nameSpace:
@@ -56,6 +57,7 @@ def botonesUI(controles='',nameSpace=None,wh=[100,50],heightW=500,pariente=None)
             cmds.button( label=ctrl,bgc=[0.4,0.8,0.57],height=wh[1],width=wh[0],annotation='( SHIFT+CLICK suma seleccion. )', command=partial(seleccion,ctrl))
             cmds.button( label ='R', bgc=[0.5,0.5,0.4],height=wh[1],width=30,command=partial(resetTRF,ctrl),annotation='Resetea las transformaciones.')
             cmds.setParent( '..' )
+        cmds.setParent( '..' )
 
 def UI(charName,controles={},nameSpace=None):
     #variable que contiene el nombre de dockControl
@@ -66,11 +68,38 @@ def UI(charName,controles={},nameSpace=None):
     #ejecuto funcion de interfas y la guardo en un dock
     cmds.workspaceControl(WorkspaceName,initialHeight=500, floating=False, retain=False, uiScript="botonesUI(controles,nameSpace)",dtm=('right', 1));
     
-nameUI = 'PLAYER_NAME' #Nombre que utilizara la interface.
-nameSpace = '' #NameSpace del personaje.
+nameUI = 'PLAYER' #Nombre que utilizara la interface.
+nameSpace = 'PLAYER_RIG_v012' #NameSpace del personaje.
 #lista de controles
-controles={'L_EYE':['l_Eye_CNT','l_eyelid_sup_CNT']}
+controles={'CAPA':['CB_CAP_CAP00_CNT',
+ 'CB_CAP_CAP01_CNT',
+ 'CB_CAP_CAP02_CNT',
+ 'CB_CAP_CAP03_CNT',
+ 'CB_CAP_CAP04_CNT',
+ 'CB_CAP_CAP05_CNT',
+ 'CB_CAP_CAP06_CNT',
+ 'CF_CAP_CAP00_CNT',
+ 'CF_CAP_CAP01_CNT',
+ 'CF_CAP_CAP02_CNT',
+ 'CF_CAP_CAP03_CNT',
+ 'CF_CAP_CAP04_CNT',
+ 'CF_CAP_CAP05_CNT',
+ 'CF_CAP_CAP06_CNT',
+ 'C_CAP_CAP_CNT',
+ 'L_CAP_CAP00_CNT',
+ 'L_CAP_CAP01_CNT',
+ 'L_CAP_CAP02_CNT',
+ 'L_CAP_CAP03_CNT',
+ 'L_CAP_CAP04_CNT',
+ 'L_CAP_CAP05_CNT',
+ 'R_CAP_CAP00_CNT',
+ 'R_CAP_CAP01_CNT',
+ 'R_CAP_CAP02_CNT',
+ 'R_CAP_CAP03_CNT',
+ 'R_CAP_CAP05_CNT'],
+ 'HAT':['C_HAT_HAT01_CNT','C_HAT_HAT02_CNT','C_HAT_HAT03_CNT'],
+ 'SCARF':['C_SCARF_SCARF_CNT','C_SCARF_CLUSTER1_CNT','C_SCARF_CLUSTER2_CNT']}
 
 
-
+#[str(x).split(':')[1] for x in cmds.ls(sl=1)]
 UI(nameUI,controles,nameSpace)#llamo a la funcion la cual ejecuta todo el resto.

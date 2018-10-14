@@ -6,7 +6,8 @@ public class EnemyIA : MonoBehaviour {
 
     public float searchRotationSpeed = 45f; //degrees per second
     public float detectedRotationSpeed = 5f;
-    public float enemySpeedRatio = 2f;
+    public float enemySpeed = 10f;
+    public float enemyRotationSpeed = 10f;
     public Color searchingColor;
     public Color staringColor;
     public Color chasingColor;
@@ -15,12 +16,29 @@ public class EnemyIA : MonoBehaviour {
     public GameState gameState;
     
     private Detector[] detectors;
-    private Animator animator;
+    private Animator anim;
+    private Rigidbody rb;
+    private Move playerMove;
     private Quaternion newRotation;
+    private Vector3 newPosition;
+    private Color color;
 
+    public enum FOVColor { searching, staring, chasing}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            anim.SetTrigger("Catched");
+        }
+        
+    }
+    
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+        playerMove = gameState.playerTransform.GetComponent<Move>();
 
         if (detectionSystem != null)
         {
@@ -54,49 +72,75 @@ public class EnemyIA : MonoBehaviour {
     {
         if(gameState.directionInput != Vector3.zero)
         {
-            animator.SetBool("Moving", true);
+            anim.SetBool("Moving", true);
         }
         else
         {
-            animator.SetBool("Moving", false);
+            anim.SetBool("Moving", false);
         }
     }
 
     private void Detected()
     {
-        animator.SetBool("Detected", true);
+        anim.SetBool("Detected", true);
     }
 
     private void Lost()
     {
-        animator.SetBool("Detected", false);
+        anim.SetBool("Detected", false);
+    }
+
+    public void ChangeFOVColor(FOVColor fovColor)
+    {
+
+        switch (fovColor)
+        {
+            case FOVColor.searching:
+                color = searchingColor;
+                break;
+            case FOVColor.staring:
+                color = staringColor;
+                break;
+            case FOVColor.chasing:
+                color = chasingColor;
+                break;
+        }
+            
+        fovRenderer.color = color;
+        
     }
 
     public void Searching()
-    {
-        if (fovRenderer.color != searchingColor)
-        {
-            fovRenderer.color = searchingColor;
-        }
+    {  
 
         newRotation = detectionSystem.transform.localRotation * Quaternion.AngleAxis(searchRotationSpeed * Time.deltaTime, Vector3.up);        
         detectionSystem.transform.localRotation = newRotation;
     }
     public void Staring()
     {
-        if (fovRenderer.color != staringColor)
-        {
-            fovRenderer.color = staringColor;
-        }
-                
+
+        //newPosition = Vector3.Lerp(detectionSystem.transform.forward, gameState.playerTransform.position, detectedRotationSpeed * Time.deltaTime);
+        //detectionSystem.transform.LookAt(newPosition, Vector3.up);
+
+        detectionSystem.transform.LookAt(gameState.playerTransform, Vector3.up);      
+
     }
 
     public void Chasing()
     {
-        if (fovRenderer.color != chasingColor)
-        {
-            fovRenderer.color = chasingColor;
-        }
+        newPosition = transform.position + (gameState.playerTransform.position - transform.position).normalized * enemySpeed * Time.deltaTime;
+        rb.MovePosition(newPosition);
+
+        newRotation = Quaternion.LookRotation(gameState.playerTransform.position - transform.position, Vector3.up);
+        newRotation = Quaternion.Euler(0f, newRotation.eulerAngles.y, 0f);
+        newRotation = Quaternion.Lerp(transform.rotation, newRotation, enemyRotationSpeed * Time.deltaTime);
+        rb.MoveRotation(newRotation);
+    }
+
+    public void Catched()
+    {
+        playerMove.canMove = false;
+                
     }
  
 }

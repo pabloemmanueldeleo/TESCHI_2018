@@ -9,12 +9,14 @@ public class Chasing : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         IA = animator.gameObject.GetComponent<EnemyIA>();
+        IA.ChangeFOVColor(EnemyIA.FOVColor.chasing);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         IA.Chasing();
+        IA.Staring();
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

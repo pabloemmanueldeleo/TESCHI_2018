@@ -25,7 +25,7 @@ public class Sink : MonoBehaviour {
     {
         if (gameState.directionInput == Vector3.zero)
         {
-            if(gameState.sinkDistance > maxSinkDistance)
+            if(gameState.sinkDistance > maxSinkDistance && move.canMove)
             {
                 gameState.sinkDistance -= sinkSpeed * Time.deltaTime;
                 move.ChangeSpeed(-playerSpeedVariation * Time.deltaTime);                                
@@ -33,7 +33,7 @@ public class Sink : MonoBehaviour {
         }
         else
         {
-            if(gameState.sinkDistance < 0)
+            if(gameState.sinkDistance < 0 && move.canMove)
             {
                 gameState.sinkDistance += sinkSpeed * sinkLiftProportion * Time.deltaTime;
                 move.ChangeSpeed(playerSpeedVariation * sinkLiftProportion * Time.deltaTime);                                               

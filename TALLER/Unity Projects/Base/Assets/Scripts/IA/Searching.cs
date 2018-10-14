@@ -10,6 +10,7 @@ public class Searching : StateMachineBehaviour {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         IA = animator.gameObject.GetComponent<EnemyIA>();
+        IA.ChangeFOVColor(EnemyIA.FOVColor.searching);
     }
     
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

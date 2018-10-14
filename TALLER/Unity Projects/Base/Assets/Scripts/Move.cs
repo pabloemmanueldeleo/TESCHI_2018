@@ -13,12 +13,14 @@ public class Move : MonoBehaviour {
     public float maxPlayerRotationSpeed = 10f;
     public float minPlayerRotationSpeed = 5f;
     public float playerRotationSpeed;
+    
+    public bool canMove = true;
 
     private Rigidbody rb;
     private Animator anim;
     private Vector3 newPosition;
     private Quaternion newRotation;
-    private bool isMoving = false;
+    private bool isMoving = false;    
 
     private void Start()
     {
@@ -30,7 +32,7 @@ public class Move : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (gameState.directionInput != Vector3.zero)
+        if (gameState.directionInput != Vector3.zero && canMove)
         {
             isMoving = true;
             anim.SetBool("isMoving", true);
@@ -40,7 +42,7 @@ public class Move : MonoBehaviour {
             rb.MovePosition(newPosition);
 
             newRotation = Quaternion.LookRotation(gameState.directionInput, Vector3.up);
-            newRotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * playerRotationSpeed);
+            newRotation = Quaternion.Lerp(transform.rotation, newRotation, playerRotationSpeed * Time.deltaTime);
             rb.MoveRotation(newRotation);
         }        
         else if (isMoving)
@@ -55,4 +57,10 @@ public class Move : MonoBehaviour {
         playerSpeed = Mathf.Clamp(playerSpeed + deltaSpeed, minPlayerSpeed, maxPlayerSpeed);
         playerRotationSpeed = Mathf.Clamp(playerRotationSpeed + deltaSpeed, minPlayerRotationSpeed, maxPlayerRotationSpeed);
     }
+
+    public void FreezeRigidbody()
+    {
+        rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+    }
+        
 }

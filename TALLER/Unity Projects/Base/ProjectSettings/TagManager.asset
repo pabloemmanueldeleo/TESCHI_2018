@@ -13,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - Environment
-  - Player
-  - Enemy
-  - Ground
-  - Trigger
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,10 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Ground
-    uniqueID: 1453482761
-    locked: 0
-  - name: FieldOfView
-    uniqueID: 927866469
     locked: 0

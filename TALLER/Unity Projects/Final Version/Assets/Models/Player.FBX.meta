@@ -1,0 +1,284 @@
+fileFormatVersion: 2
+guid: 3f15d320e4f238444ab976e6577ae6f6
+timeCreated: 1539209471
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: astreus_Head
+    100002: astreus_LCalf
+    100004: astreus_LThigh
+    100006: astreus_Neck
+    100008: astreus_Pelvis
+    100010: astreus_RCalf
+    100012: astreus_Ribcage
+    100014: astreus_RThigh
+    100016: astreus_Spine1
+    100018: astreus_Spine2
+    100020: astreus_Spine3
+    100022: astreus_Spine4
+    100024: astreus_Tailhat
+    100026: astreus_Tailponcho_B_1
+    100028: astreus_Tailponcho_B_2
+    100030: astreus_Tailponcho_B_3
+    100032: astreus_Tailponcho_B_4
+    100034: astreus_Tailponcho_B_5
+    100036: astreus_Tailponcho_F_1
+    100038: astreus_Tailponcho_F_2
+    100040: astreus_Tailponcho_F_3
+    100042: astreus_Tailponcho_F_4
+    100044: astreus_Tailponcho_F_5
+    100046: astreus_Tailscarfphy1
+    100048: astreus_Tailscarfphy10
+    100050: astreus_Tailscarfphy2
+    100052: astreus_Tailscarfphy3
+    100054: astreus_Tailscarfphy4
+    100056: astreus_Tailscarfphy5
+    100058: astreus_Tailscarfphy6
+    100060: astreus_Tailscarfphy7
+    100062: astreus_Tailscarfphy8
+    100064: astreus_Tailscarfphy9
+    100066: C_astraeus_body__MSH
+    100068: C_astraeus_hat__MSH
+    100070: C_astraeus_poncho__MSH
+    100072: C_astraeus_scarf__MSH
+    100074: C_astraeus_scarfphy__MSH
+    100076: //RootNode
+    400000: astreus_Head
+    400002: astreus_LCalf
+    400004: astreus_LThigh
+    400006: astreus_Neck
+    400008: astreus_Pelvis
+    400010: astreus_RCalf
+    400012: astreus_Ribcage
+    400014: astreus_RThigh
+    400016: astreus_Spine1
+    400018: astreus_Spine2
+    400020: astreus_Spine3
+    400022: astreus_Spine4
+    400024: astreus_Tailhat
+    400026: astreus_Tailponcho_B_1
+    400028: astreus_Tailponcho_B_2
+    400030: astreus_Tailponcho_B_3
+    400032: astreus_Tailponcho_B_4
+    400034: astreus_Tailponcho_B_5
+    400036: astreus_Tailponcho_F_1
+    400038: astreus_Tailponcho_F_2
+    400040: astreus_Tailponcho_F_3
+    400042: astreus_Tailponcho_F_4
+    400044: astreus_Tailponcho_F_5
+    400046: astreus_Tailscarfphy1
+    400048: astreus_Tailscarfphy10
+    400050: astreus_Tailscarfphy2
+    400052: astreus_Tailscarfphy3
+    400054: astreus_Tailscarfphy4
+    400056: astreus_Tailscarfphy5
+    400058: astreus_Tailscarfphy6
+    400060: astreus_Tailscarfphy7
+    400062: astreus_Tailscarfphy8
+    400064: astreus_Tailscarfphy9
+    400066: C_astraeus_body__MSH
+    400068: C_astraeus_hat__MSH
+    400070: C_astraeus_poncho__MSH
+    400072: C_astraeus_scarf__MSH
+    400074: C_astraeus_scarfphy__MSH
+    400076: //RootNode
+    2300000: astreus_Head
+    2300002: astreus_LCalf
+    2300004: astreus_LThigh
+    2300006: astreus_Neck
+    2300008: astreus_Pelvis
+    2300010: astreus_RCalf
+    2300012: astreus_Ribcage
+    2300014: astreus_RThigh
+    2300016: astreus_Spine1
+    2300018: astreus_Spine2
+    2300020: astreus_Spine3
+    2300022: astreus_Spine4
+    2300024: astreus_Tailhat
+    2300026: astreus_Tailponcho_B_1
+    2300028: astreus_Tailponcho_B_2
+    2300030: astreus_Tailponcho_B_3
+    2300032: astreus_Tailponcho_B_4
+    2300034: astreus_Tailponcho_B_5
+    2300036: astreus_Tailponcho_F_1
+    2300038: astreus_Tailponcho_F_2
+    2300040: astreus_Tailponcho_F_3
+    2300042: astreus_Tailponcho_F_4
+    2300044: astreus_Tailponcho_F_5
+    2300046: astreus_Tailscarfphy1
+    2300048: astreus_Tailscarfphy10
+    2300050: astreus_Tailscarfphy2
+    2300052: astreus_Tailscarfphy3
+    2300054: astreus_Tailscarfphy4
+    2300056: astreus_Tailscarfphy5
+    2300058: astreus_Tailscarfphy6
+    2300060: astreus_Tailscarfphy7
+    2300062: astreus_Tailscarfphy8
+    2300064: astreus_Tailscarfphy9
+    3300000: astreus_Head
+    3300002: astreus_LCalf
+    3300004: astreus_LThigh
+    3300006: astreus_Neck
+    3300008: astreus_Pelvis
+    3300010: astreus_RCalf
+    3300012: astreus_Ribcage
+    3300014: astreus_RThigh
+    3300016: astreus_Spine1
+    3300018: astreus_Spine2
+    3300020: astreus_Spine3
+    3300022: astreus_Spine4
+    3300024: astreus_Tailhat
+    3300026: astreus_Tailponcho_B_1
+    3300028: astreus_Tailponcho_B_2
+    3300030: astreus_Tailponcho_B_3
+    3300032: astreus_Tailponcho_B_4
+    3300034: astreus_Tailponcho_B_5
+    3300036: astreus_Tailponcho_F_1
+    3300038: astreus_Tailponcho_F_2
+    3300040: astreus_Tailponcho_F_3
+    3300042: astreus_Tailponcho_F_4
+    3300044: astreus_Tailponcho_F_5
+    3300046: astreus_Tailscarfphy1
+    3300048: astreus_Tailscarfphy10
+    3300050: astreus_Tailscarfphy2
+    3300052: astreus_Tailscarfphy3
+    3300054: astreus_Tailscarfphy4
+    3300056: astreus_Tailscarfphy5
+    3300058: astreus_Tailscarfphy6
+    3300060: astreus_Tailscarfphy7
+    3300062: astreus_Tailscarfphy8
+    3300064: astreus_Tailscarfphy9
+    4300000: C_astraeus_body__MSH
+    4300002: C_astraeus_hat__MSH
+    4300004: C_astraeus_poncho__MSH
+    4300006: C_astraeus_scarf__MSH
+    4300008: C_astraeus_scarfphy__MSH
+    4300010: astreus_Pelvis
+    4300012: astreus_LThigh
+    4300014: astreus_LCalf
+    4300016: astreus_RThigh
+    4300018: astreus_RCalf
+    4300020: astreus_Spine1
+    4300022: astreus_Spine2
+    4300024: astreus_Spine3
+    4300026: astreus_Spine4
+    4300028: astreus_Ribcage
+    4300030: astreus_Neck
+    4300032: astreus_Head
+    4300034: astreus_Tailscarfphy1
+    4300036: astreus_Tailscarfphy2
+    4300038: astreus_Tailscarfphy3
+    4300040: astreus_Tailscarfphy4
+    4300042: astreus_Tailscarfphy5
+    4300044: astreus_Tailscarfphy6
+    4300046: astreus_Tailscarfphy7
+    4300048: astreus_Tailscarfphy8
+    4300050: astreus_Tailscarfphy9
+    4300052: astreus_Tailscarfphy10
+    4300054: astreus_Tailhat
+    4300056: astreus_Tailponcho_B_1
+    4300058: astreus_Tailponcho_B_2
+    4300060: astreus_Tailponcho_B_3
+    4300062: astreus_Tailponcho_B_4
+    4300064: astreus_Tailponcho_B_5
+    4300066: astreus_Tailponcho_F_1
+    4300068: astreus_Tailponcho_F_2
+    4300070: astreus_Tailponcho_F_3
+    4300072: astreus_Tailponcho_F_4
+    4300074: astreus_Tailponcho_F_5
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: C_astraeus_body__MSH
+    13700002: C_astraeus_hat__MSH
+    13700004: C_astraeus_poncho__MSH
+    13700006: C_astraeus_scarf__MSH
+    13700008: C_astraeus_scarfphy__MSH
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 73383f38ec87eea49ad8310ca0df4fa6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: astraeus_map
+    second: {fileID: 2100000, guid: 12651fbae096b3e42a31637cc7742d25, type: 2}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: astreus_Pelvis
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

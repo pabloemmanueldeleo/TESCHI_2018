@@ -62,5 +62,34 @@ public class Move : MonoBehaviour {
     {
         rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
     }
+
+    public void MoveTowardsPoint(Vector3 point)
+    {
+        StartCoroutine(MoveToPoint(point));
+        
+    }
+
+    private IEnumerator MoveToPoint(Vector3 point)
+    {
+        canMove = false;
+        //gameState.directionInput = Vector3.forward;
+        isMoving = false;
+        anim.SetBool("isMoving", true);
+
+        while ((transform.position - point).magnitude > 0.1f)
+        {
+            gameState.sinkDistance += 0.5f * Time.deltaTime;
+            gameState.sinkDistance = Mathf.Clamp(gameState.sinkDistance, gameState.maxSinkDistance, 0);
+
+            newPosition = transform.position + (point - transform.position).normalized * playerSpeed * Time.deltaTime;
+            rb.MovePosition(newPosition);
+
+            newRotation = Quaternion.LookRotation(point - transform.position, Vector3.up);
+            newRotation = Quaternion.Euler(0f, newRotation.eulerAngles.y, 0f);
+            newRotation = Quaternion.Lerp(transform.rotation, newRotation, playerRotationSpeed * Time.deltaTime);
+            rb.MoveRotation(newRotation);
+            yield return null;
+        }
+    }
         
 }

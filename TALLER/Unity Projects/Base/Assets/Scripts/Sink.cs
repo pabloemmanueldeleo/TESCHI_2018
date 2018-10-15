@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Sink : MonoBehaviour {
     
-    public float maxSinkDistance = -2f;
     public float sinkSpeed = 0.5f;
     public float playerSpeedVariation = 0.7f;
     public float sinkLiftProportion = 2;
+    public bool canSink = true;
 
     public Transform model;
-
+    
     private Move move;
     private GameState gameState;
     private Vector3 newPosition;
@@ -25,7 +25,7 @@ public class Sink : MonoBehaviour {
     {
         if (gameState.directionInput == Vector3.zero)
         {
-            if(gameState.sinkDistance > maxSinkDistance && move.canMove)
+            if(gameState.sinkDistance > gameState.maxSinkDistance && canSink)
             {
                 gameState.sinkDistance -= sinkSpeed * Time.deltaTime;
                 move.ChangeSpeed(-playerSpeedVariation * Time.deltaTime);                                
@@ -33,7 +33,7 @@ public class Sink : MonoBehaviour {
         }
         else
         {
-            if(gameState.sinkDistance < 0 && move.canMove)
+            if(gameState.sinkDistance < 0 && canSink)
             {
                 gameState.sinkDistance += sinkSpeed * sinkLiftProportion * Time.deltaTime;
                 move.ChangeSpeed(playerSpeedVariation * sinkLiftProportion * Time.deltaTime);                                               
@@ -45,6 +45,10 @@ public class Sink : MonoBehaviour {
             newPosition.y = gameState.sinkDistance;
             model.localPosition = newPosition;
 
+            if(gameState.sinkDistance < gameState.maxSinkDistance && !gameState.playerDead)
+            {
+                gameState.gameplayManager.PlayerDie();
+            }
         }
     }
         

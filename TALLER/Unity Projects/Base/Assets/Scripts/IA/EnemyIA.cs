@@ -18,7 +18,6 @@ public class EnemyIA : MonoBehaviour {
     private Detector[] detectors;
     private Animator anim;
     private Rigidbody rb;
-    private Move playerMove;
     private Quaternion newRotation;
     private Vector3 newPosition;
     private Color color;
@@ -29,7 +28,7 @@ public class EnemyIA : MonoBehaviour {
     {
         if (other.tag.Equals("Player"))
         {
-            anim.SetTrigger("Catched");
+            anim.SetTrigger("Catched");            
         }
         
     }
@@ -38,8 +37,7 @@ public class EnemyIA : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        playerMove = gameState.playerTransform.GetComponent<Move>();
-
+        
         if (detectionSystem != null)
         {
             detectors = detectionSystem.GetComponentsInChildren<Detector>();
@@ -139,8 +137,10 @@ public class EnemyIA : MonoBehaviour {
 
     public void Catched()
     {
-        playerMove.canMove = false;
-                
+        if (!gameState.playerDead)
+        {
+            gameState.gameplayManager.PlayerDie();
+        }
     }
  
 }

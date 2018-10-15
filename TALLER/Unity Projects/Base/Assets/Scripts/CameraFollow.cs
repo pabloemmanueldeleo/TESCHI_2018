@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour {
 
     public Transform target;
+    public bool isFollowing = true;
 
     private Vector3 cameraOffset;
 
@@ -15,6 +16,9 @@ public class CameraFollow : MonoBehaviour {
 
     private void Update()
     {
-        transform.position = target.position - cameraOffset;
+        if (isFollowing)
+        {
+            transform.position = target.position - cameraOffset;
+        }
     }
 }

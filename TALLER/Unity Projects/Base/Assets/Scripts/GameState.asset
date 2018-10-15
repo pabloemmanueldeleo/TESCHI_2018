@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Name: GameState
   m_EditorClassIdentifier: 
   directionInput: {x: 0, y: 0, z: 0}
+  sinkDistance: -0.4133186
+  maxSinkDistance: -3.2
+  playerTransform: {fileID: 0}
+  playerDead: 0
+  gameplayManager: {fileID: 0}

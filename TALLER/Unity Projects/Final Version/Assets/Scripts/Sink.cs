@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sink : MonoBehaviour {
     
-    public float sinkSpeed = 0.5f;
+    public float sinkSpeed = 0.3f;
     public float playerSpeedVariation = 0.7f;
     public float sinkLiftProportion = 2;
     public bool canSink = true;

@@ -6,7 +6,7 @@ public class Move : MonoBehaviour {
 
     public GameState gameState;
 
-    public float maxPlayerSpeed = 5f;
+    public float maxPlayerSpeed = 7f;
     public float minPlayerSpeed = 0.5f;
     public float playerSpeed;
         

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class EnemyIA : MonoBehaviour {
 
     public float searchRotationSpeed = 45f; //degrees per second
@@ -14,7 +13,7 @@ public class EnemyIA : MonoBehaviour {
     public Color chasingColor;
     public SpriteRenderer fovRenderer;
     public GameObject detectionSystem;
-    //public GameState gameState;
+    public GameState gameState;
     
     private Detector[] detectors;
     private Animator anim;
@@ -116,7 +115,11 @@ public class EnemyIA : MonoBehaviour {
         detectionSystem.transform.localRotation = newRotation;
     }
     public void Staring()
-    {		       
+    {
+
+        //newPosition = Vector3.Lerp(detectionSystem.transform.forward, gameState.playerTransform.position, detectedRotationSpeed * Time.deltaTime);
+        //detectionSystem.transform.LookAt(newPosition, Vector3.up);
+
         detectionSystem.transform.LookAt(gameState.playerTransform, Vector3.up);      
 
     }
@@ -133,11 +136,11 @@ public class EnemyIA : MonoBehaviour {
     }
 
     public void Catched()
-    {        
-     	if (!gameState.playerDead)
+    {
+        if (!gameState.playerDead)
         {
             gameState.gameplayManager.PlayerDie();
         }
-    } 
+    }
+ 
 }
-
